@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+:root {
+  --Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+  --Pale-Blue: hsl(243, 100%, 93%);
+  --Grayish-Blue: hsl(229, 7%, 55%);
+  --Dark-Blue: hsl(228, 56%, 26%);
+  --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
+main {
+  height: 100vh;
+  background-color: var(--Very-Dark-Blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#storage-component {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  z-index: 4;
+  position: relative;
+}
+
+#header-component {
+  padding: 3rem 10rem 2rem 2rem;
+  background-color: var(--Dark-Blue);
+  border-radius: 0.5rem 4rem 0.5rem 0.5rem;
+  box-shadow: 7px 10px 66px -23px rgba(0, 0, 0, 1);
+}
+
+#header-logo {
+  margin-bottom: 1.5rem;
+}
+
+#features-logo > img {
+  margin: 0 0.3rem;
+  padding: 0.5rem;
+  background-color: var(--Very-Dark-Blue);
+  height: 40px;
+  width: 40px;
+  border-radius: 0.5rem;
+}
+
+#tooltip-component {
+  position: absolute;
+  left: 36%;
+  bottom: 8rem;
+  border: 1px solid;
+  padding: 1rem 1.5rem;
+  color: var(--Grayish-Blue);
+  background-color: var(--Pale-Blue);
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 7px 10px 66px -23px rgba(0, 0, 0, 1);
+}
+
+#tooltip-component::before {
+  content: '';
+  position: absolute;
+  top: 80%;
+  right: 0;
+  margin-left: -15px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent var(--Pale-Blue) transparent transparent;
+}
+
+#tooltip-component span {
+  font-size: 2rem;
+  color: black;
+}
+
+#storage-remaining-component {
+  padding: 2rem 3rem;
+  width: 40%;
+  background-color: var(--Dark-Blue);
+  border-radius: 0.5rem;
+  box-shadow: 7px 10px 66px -23px rgba(0, 0, 0, 1);
+}
+
+.header {
+  margin-bottom: 1rem;
+  color: var(--Grayish-Blue);
+}
+
+.header span {
+  color: white;
+}
+
+#progress-bar {
+  height: 25px;
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: var(--Very-Dark-Blue);
+  border-radius: 1rem;
+}
+
+#filled-bar {
+  width: 81.5%;
+  background-image: linear-gradient(
+    to right,
+    hsl(6, 100%, 80%),
+    hsl(335, 100%, 65%)
+  );
+  height: inherit;
+  border-radius: 1rem;
+  position: relative;
+}
+
+#filled-bar::before {
+  content: '';
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#total-storage {
+  display: flex;
+  justify-content: space-between;
+  color: var(--Pale-Blue);
+}
+
+#background-component {
+  position: absolute;
+  background-image: url('images/bg-desktop.png');
+  width: 100%;
+  height: 50vh;
+  bottom: 1rem;
+  z-index: 1;
+}
+
+@media (max-width: 428px) {
+  #storage-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  #storage-remaining-component {
+    width: 80%;
+  }
+
+  #background-component {
+    background-image: url('images/bg-mobile.png');
+    background-size: cover;
+    background-repeat: repeat;
+    height: 100vh;
+    bottom: 0;
+  }
+
+  #tooltip-component {
+    top: 13rem;
+    left: 0%;
+    border: 1px solid black;
+  }
+
+  #tooltip-component::before {
+    border-color: transparent transparent transparent transparent;
+  }
+}
+
+@media(max-width: 390px) {
+  #storage-remaining-component {
+    width: 90%;
+  }
+}
+
+@media(max-width: 360px) {
+  #storage-remaining-component {
+    width: 100%;
+  }
+}
+
+@media(max-width: 320px) {
+  main {
+    height: 130vh;
+  }
+}
